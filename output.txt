@@ -36,3 +36,219 @@ gle line  single line  single line  single line  single line  single line  singl
 
 e line  
 
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line  
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line  
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line  
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line  
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line single line single line  single line  single line  single line  single li
+
+
+ne  single line  single line  single line  single line  single line  single line
+
+
+  single line single line single line  single line  single line  single line  si
+
+
+ngle line  single line  single line  single line  single line  single line  sing
+
+
+le line  single line single line single line  single line  single line  single l
+
+
+ine  single line  single line  single line  single line  single line  single lin
+
+
+e  single line  single line
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line single line single line  single line  single line  single line  single li
+
+
+ne  single line  single line  single line  single line  single line  single line
+
+
+  single line single line single line  single line  single line  single line  si
+
+
+ngle line  single line  single line  single line  single line  single line  sing
+
+
+le line  single line single line single line  single line  single line  single l
+
+
+ine  single line  single line  single line  single line  single line  single lin
+
+
+e  single line  single line
+
+
+                                     Hello
+                                                              This is an Example
+                          This should be in the middle
+one column ok
+This should make sure that it is to the left and only contains 80 char per line,
+ 80 char per line 80 char per line 80 char per line 80 char per line 80 char per
+ line 80 char per line 80 char per line 80 char per line 80 char per line 80 cha
+r per line 80 char per line 80 char per line 80 char per line 80 char per line 8
+0 char per line 80 char per line 80 char per line.
+This should be 2 columns This shoul          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+d be 2 columns This should be 2 col          d be 2 columns This should be 2 col
+     Hello
+          multiply line indent, multiply line indent multiply line indent multip
+single line single line  single line  single line  single line  single line  sin
+
+
+gle line  single line  single line  single line  single line  single line  singl
+
+
+e line single line single line  single line  single line  single line  single li
+
+
+ne  single line  single line  single line  single line  single line  single line
+
+
+  single line single line single line  single line  single line  single line  si
+
+
+ngle line  single line  single line  single line  single line  single line  sing
+
+
+le line  single line single line single line  single line  single line  single l
+
+
+ine  single line  single line  single line  single line  single line  single lin
+
+
+e  single line  single line
+
+

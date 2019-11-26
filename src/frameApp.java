@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -70,8 +71,10 @@ public class frameApp {
 				frame.getContentPane().add(txtpnFileName);
 								
 				JTextArea jTextArea1 = new JTextArea();
+				JScrollPane sp = new JScrollPane(jTextArea1); // Added for the Scroll but didnt work
 				jTextArea1.setBounds(10, 109, 869, 285);
 				frame.getContentPane().add(jTextArea1);
+				frame.getContentPane().add(sp);     // Added for the Scroll but didnt work
 				
 				JTextArea textAreaErrors = new JTextArea();
 				textAreaErrors.setBounds(10, 432, 869, 66);
@@ -275,7 +278,7 @@ public class frameApp {
 								}
 								
 								//prints all of the arrays in two columns, so that both columns can be read
-								int addVal = Math.ceil(arr.length / 2);
+								int addVal = (int) Math.ceil(arr.length / 2);
 								for(int i = 0; i < (int) Math.floor(arr.length) / 2; i++){
 									output_print.println(arr[i] + blankString(10) + arr[(int) (i + addVal)]);
 								}
