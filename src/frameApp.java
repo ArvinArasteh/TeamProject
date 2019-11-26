@@ -102,6 +102,7 @@ public class frameApp {
 					
 				
 			}
+		
 		});
 		btnUpload.setForeground(Color.BLACK);
 		btnUpload.setFont(new Font("Ink Free", Font.BOLD, 15));
