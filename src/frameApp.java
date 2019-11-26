@@ -2,13 +2,24 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.JTextComponent;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
+import java.awt.event.ActionEvent;
 
 public class frameApp {
 
@@ -47,6 +58,51 @@ public class frameApp {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnUpload = new JButton("Upload");
+		btnUpload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+						
+				JTextPane txtpnFileName = new JTextPane();
+				txtpnFileName.setBounds(128, 11, 150, 23);
+				frame.getContentPane().add(txtpnFileName);
+								
+				JTextArea jTextArea1 = new JTextArea();
+				jTextArea1.setBounds(10, 109, 869, 285);
+				frame.getContentPane().add(jTextArea1);
+												
+				JFileChooser chooser = new JFileChooser();   //choosing patch and opening dialog
+				chooser.showOpenDialog(null);
+				File f  = chooser.getSelectedFile();
+				//FileNameExtensionFilter nf = new FileNameExtensionFilter("Text Files", "txt");
+				String filename = f.getAbsolutePath();
+				String file_name = f.getName();
+		
+				
+				txtpnFileName.setText(file_name);
+				
+			
+				try
+				{
+					FileReader reader = new FileReader(filename);
+					BufferedReader br = new BufferedReader(reader);
+					
+				
+					jTextArea1.read(br, null);
+					br.close();
+					jTextArea1.requestFocus();
+					
+					
+					
+					
+				}
+				
+				catch (Exception e){
+					System.err.println("Something Went Wrong... Try Again!");
+					JOptionPane.showMessageDialog(null, e);
+				}
+					
+				
+			}
+		});
 		btnUpload.setForeground(Color.BLACK);
 		btnUpload.setFont(new Font("Ink Free", Font.BOLD, 15));
 		btnUpload.setBounds(10, 11, 89, 23);
@@ -62,15 +118,12 @@ public class frameApp {
 		lblPreview.setBounds(10, 84, 79, 14);
 		frame.getContentPane().add(lblPreview);
 		
-		JTextPane txtpnFileName = new JTextPane();
-		txtpnFileName.setText("Dr_Calliss_Syllabus_Example");
-		txtpnFileName.setBounds(128, 11, 150, 23);
-		frame.getContentPane().add(txtpnFileName);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setText("File Name");
-		textPane.setBounds(128, 45, 94, 23);
-		frame.getContentPane().add(textPane);
+		
+		JTextPane txtpnSaveFileName = new JTextPane();
+		txtpnSaveFileName.setText("Dr_Calliss_New_Syllabus_Example");
+		txtpnSaveFileName.setBounds(128, 45, 180, 23);
+		frame.getContentPane().add(txtpnSaveFileName);
 		
 		JLabel label = new JLabel("Error Log");
 		label.setFont(new Font("Ink Free", Font.BOLD, 17));
@@ -79,13 +132,14 @@ public class frameApp {
 		
 		JTextPane txtpnWhileProcessingYour = new JTextPane();
 		txtpnWhileProcessingYour.setFont(new Font("Tahoma", Font.BOLD, 12));
-		txtpnWhileProcessingYour.setText("While processing your file the following errors happened:\r\nInvalidFlag Error: In line 67 / there was an invalid flag\r\n");
 		txtpnWhileProcessingYour.setBounds(10, 432, 869, 66);
 		frame.getContentPane().add(txtpnWhileProcessingYour);
 		
-		JTextArea txtrSd = new JTextArea();
-		txtrSd.setText("                                                 This is an Example\r\n     Hello we are team number 9 and this is how we are going to do this project.\r\n                                      Oh did you just use -c command? Interesting");
-		txtrSd.setBounds(10, 109, 869, 283);
-		frame.getContentPane().add(txtrSd);
+		JLabel lblSaved = new JLabel("Saved");
+		lblSaved.setFont(new Font("Ink Free", Font.BOLD, 18));
+		lblSaved.setBounds(318, 42, 67, 26);
+		frame.getContentPane().add(lblSaved);
+		
+		
 	}
 }
