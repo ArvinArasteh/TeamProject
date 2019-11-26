@@ -81,7 +81,7 @@ public class frameApp {
 				
 				txtpnFileName.setText(file_name);
 				
-				String fileName_to_save= "newFile.txt";
+				String fileName_to_save= "output.txt";
 				
 				File file_to_save = new File(fileName_to_save); // creates a File to save later
 				
@@ -185,12 +185,7 @@ public class frameApp {
 		JLabel lblPreview = new JLabel("Preview");
 		lblPreview.setFont(new Font("Ink Free", Font.BOLD, 17));
 		lblPreview.setBounds(10, 84, 79, 14);
-		frame.getContentPane().add(lblPreview);	
-		
-		JTextPane txtpnSaveFileName = new JTextPane();
-		txtpnSaveFileName.setText("Dr_Calliss_New_Syllabus_Example");
-		txtpnSaveFileName.setBounds(128, 45, 180, 23);
-		frame.getContentPane().add(txtpnSaveFileName);
+		frame.getContentPane().add(lblPreview);
 		
 		JLabel label = new JLabel("Error Log");
 		label.setFont(new Font("Ink Free", Font.BOLD, 17));
@@ -204,7 +199,7 @@ public class frameApp {
 		
 		JLabel lblSaved = new JLabel("Saved");
 		lblSaved.setFont(new Font("Ink Free", Font.BOLD, 18));
-		lblSaved.setBounds(318, 42, 67, 26);
+		lblSaved.setBounds(155, 41, 67, 26);
 		frame.getContentPane().add(lblSaved);
 		
 		
