@@ -245,7 +245,8 @@ public class frameApp {
 								output.append("");
 								break;
 							default:
-								error_output.append("Invalid Command");
+								error_output.append("While Processing Your File The Following Errors Happened: ");
+								error_output.append("Invalid Flag Error");
 								textAreaErrors.write(error_output);
 								
 							}
