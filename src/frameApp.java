@@ -105,47 +105,132 @@ public class frameApp {
 							case 'l':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        System.out.println(line.substring(0, 80));
+								        output.append(line.substring(0, 80));
 								        line = line.substring(80, line.length());
-								        //print to text field
 								    }else{
-								        System.out.println(line);
-								        line = "";
+								        output.append(line);
+								        break;
 								    }
 								}
 								break;
 							case 'c':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								    	int num = (80 - line.length()) / 2;
+								        output.append(blankString(num) + line);
+								        break;
+								    }
+								}
 								break;
 							case 'r':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								    	num = 80 - line.length();
+								        output.append(blankString(num) + line);
+								        line = "";
+								    }
+								}
 								break;
 							case 't':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								    	int num = (80 - line.length()) / 2;
+								        output.append(blankString(num) + line);
+								        break;
+								    }
+								}
 								break;
 							case 'd':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        output.append("");
+								        line = line.substring(80, line.length());
+								    }else{
+								        output.append(line);
+								        output.append("");
+								        break;
+								    }
+								}
 								break;
 							case 's':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								        output.append(line);
+								        break;
+								    }
+								}
 								break;
 							case 'i':
-								
+								int count = 0;
+								while(line.length() != 0){
+									if(count == 0) {
+										if(line.length() > 75){
+									        output.append(blankString(5) + line.substring(0, 75));
+									        line = line.substring(75, line.length());
+									    }else{
+									        output.append(blankString(5) + line);
+									        break;
+									    }
+									}else {
+										if(line.length() > 80){
+									        output.append(line.substring(0, 80));
+									        line = line.substring(80, line.length());
+									    }else{
+									        output.append(line);
+									        break;
+									    }
+									}
+								}
 								break;
 							case 'b':
-								
+								if(line.length() > 70){
+							        output.append(blankString(10) + line.substring(0, 70));
+							        line = line.substring(70, line.length());
+							    }else{
+							        output.append(blankString(10) + line);
+							        break;
+							    }
 								break;
 							case 'n':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								        output.append(line);
+								        break;
+								    }
+								}
 								break;
 							case '1':
-								
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        output.append(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								    }else{
+								        output.append(line);
+								        break;
+								    }
+								}
 								break;
 							case '2':
 								
 								break;
 							case 'e':
-								
+								output.append("");
 								break;
 							default:
 								
@@ -203,5 +288,13 @@ public class frameApp {
 		frame.getContentPane().add(lblSaved);
 		
 		
+	}
+	
+	public String blankString(int num) {
+		String newString = "";
+		for(int i = 0; i < num; i++) {
+			newString += " ";
+		}
+		return newString;
 	}
 }
