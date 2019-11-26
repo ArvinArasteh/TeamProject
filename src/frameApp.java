@@ -72,34 +72,45 @@ public class frameApp {
 				JFileChooser chooser = new JFileChooser();   //choosing patch and opening dialog
 				chooser.showOpenDialog(null);
 				File f  = chooser.getSelectedFile();
-				//FileNameExtensionFilter nf = new FileNameExtensionFilter("Text Files", "txt");
+				
 				String filename = f.getAbsolutePath();
-				String file_name = f.getName();
-		
+				String file_name = f.getName();	
 				
 				txtpnFileName.setText(file_name);
-				
-			
+						
 				try
 				{
 					FileReader reader = new FileReader(filename);
 					BufferedReader br = new BufferedReader(reader);
+					String line = br.readLine();
 					
-				
+					while(line != null) {
+						
+						line = br.readLine();
+						
+						while (line.length() > 80) {
+						if (line.length() <= 80) {
+							
+						} else {
+							line = line.substring(0, 80);
+							String new_line = line.substring(80, line.length());		
+						}
+						
+						}
+						
+					}
+							
+					
 					jTextArea1.read(br, null);
 					br.close();
 					jTextArea1.requestFocus();
-					
-					
-					
-					
+										
 				}
 				
 				catch (Exception e){
 					System.err.println("Something Went Wrong... Try Again!");
 					JOptionPane.showMessageDialog(null, e);
-				}
-					
+				}				
 				
 			}
 		
@@ -117,9 +128,7 @@ public class frameApp {
 		JLabel lblPreview = new JLabel("Preview");
 		lblPreview.setFont(new Font("Ink Free", Font.BOLD, 17));
 		lblPreview.setBounds(10, 84, 79, 14);
-		frame.getContentPane().add(lblPreview);
-		
-		
+		frame.getContentPane().add(lblPreview);	
 		
 		JTextPane txtpnSaveFileName = new JTextPane();
 		txtpnSaveFileName.setText("Dr_Calliss_New_Syllabus_Example");
