@@ -16,9 +16,12 @@ import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Writer;
 import java.awt.event.ActionEvent;
 
 public class frameApp {
@@ -77,12 +80,21 @@ public class frameApp {
 				String file_name = f.getName();	
 				
 				txtpnFileName.setText(file_name);
+				
+				String fileName_to_save= "newFile.txt";
+				
+				File file_to_save = new File(fileName_to_save); // creates a File to save later
+				
 						
 				try
 				{
 					FileReader reader = new FileReader(filename);
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
+					
+					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
+					output.append(line); //addes the line to the new file
+					
 					
 					while(line != null) {
 						while(line.length() != 0){
@@ -101,6 +113,7 @@ public class frameApp {
 					
 					jTextArea1.read(br, null);
 					br.close();
+					output.close();
 					jTextArea1.requestFocus();
 										
 				}
