@@ -95,16 +95,30 @@ public class frameApp {
 					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
 					output.append(line); //addes the line to the new file
 					
+					char flag = '';
 					
 					while(line != null) {
-						while(line.length() != 0){
-						    if(line.length() > 80){
-						        System.out.println(line.substring(0, 80));
-						        line = line.substring(80, line.length());
-						    }else{
-						        System.out.println(line);
-						        line = "";
-						    }
+						if(line[0] == '-') {
+							flag = line[1];
+						}else{
+							switch(flag) {
+							case 'l':
+								while(line.length() != 0){
+								    if(line.length() > 80){
+								        System.out.println(line.substring(0, 80));
+								        line = line.substring(80, line.length());
+								        //print to text field
+								    }else{
+								        System.out.println(line);
+								        line = "";
+								    }
+								}
+								break;
+							case 'c':
+								
+								break;
+							}
+							
 						}
 
 						line = br.readLine();
