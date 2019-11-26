@@ -114,6 +114,7 @@ public class frameApp {
 							flag = line.charAt(1);
 						} else
 							switch(flag) {
+							//left alignment
 							case 'l':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -125,6 +126,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//center alignment
 							case 'c':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -137,6 +139,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//right alignment
 							case 'r':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -149,6 +152,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//makes it a title, centered, with no justification
 							case 't':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -161,6 +165,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//double spaces lines
 							case 'd':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -174,6 +179,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//single spaces lines
 							case 's':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -185,6 +191,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//indents the first line by 5 spaces
 							case 'i':
 								int count = 0;
 								while(line.length() != 0){
@@ -207,6 +214,7 @@ public class frameApp {
 									}
 								}
 								break;
+							//indents all the lines 10 spaces
 							case 'b':
 								if(line.length() > 70){
 							        output.append(blankString(10) + line.substring(0, 70));
@@ -216,6 +224,7 @@ public class frameApp {
 							        break;
 							    }
 								break;
+							//removes indentation
 							case 'n':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -227,6 +236,7 @@ public class frameApp {
 								    }
 								}
 								break;
+							//single column formatting
 							case '1':
 								while(line.length() != 0){
 								    if(line.length() > 80){
@@ -238,9 +248,32 @@ public class frameApp {
 								    }
 								}
 								break;
+							//double column formatting
 							case '2':
+								//divides the line into an array of length 35 strings
+								int size = Math.ceil(line.length() / 35);
+								String[] arr = new String[size];
+								String subLine = line;
+								for(int i = 0; i < arr.length; i++) {
+									if(subLine.length() > 35) {
+										arr[i] = subLine.substring(0, 35);
+										subLine = line.substring(0, subLine.length());
+									}else {
+										arr[i] = subLine;
+									}
+								}
 								
+								//prints all of the arrays in two columns, so that both columns can be read
+								for(int i = 0; i < Math.floor(arr.length) / 2); i++){
+									output.append(arr[i] + blankString(10) + arr[i + Math.ceil(arr.length / 2)]);
+								}
+								
+								//if the array is odd, then it prints the final array that didn't get printed
+								if(arr.length % 2 == 1) {
+									output.append(arr[Math.floor(arr.length/2)]);
+								}
 								break;
+							//blank line
 							case 'e':
 								output.append("");
 								break;
