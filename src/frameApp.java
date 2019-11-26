@@ -71,6 +71,12 @@ public class frameApp {
 				JTextArea jTextArea1 = new JTextArea();
 				jTextArea1.setBounds(10, 109, 869, 285);
 				frame.getContentPane().add(jTextArea1);
+				
+				JTextArea textAreaErrors = new JTextArea();
+				textAreaErrors.setBounds(10, 432, 869, 66);
+				frame.getContentPane().add(textAreaErrors);
+				
+					
 												
 				JFileChooser chooser = new JFileChooser();   //choosing patch and opening dialog
 				chooser.showOpenDialog(null);
@@ -81,9 +87,13 @@ public class frameApp {
 				
 				txtpnFileName.setText(file_name);
 				
-				String fileName_to_save= "output.txt";
 				
+				String error = "error.txt";
+				File error_file = new File(error);
+				
+				String fileName_to_save= "output.txt"; //new file name
 				File file_to_save = new File(fileName_to_save); // creates a File to save later
+				
 				
 						
 				try
@@ -91,6 +101,8 @@ public class frameApp {
 					FileReader reader = new FileReader(filename);
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
+			
+					Writer error_output = new BufferedWriter(new FileWriter(error_file, true));
 					
 					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
 					output.append(line); //addes the line to the new file
@@ -131,7 +143,7 @@ public class frameApp {
 								        output.append(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
-								    	num = 80 - line.length();
+								    	int num = 80 - line.length();
 								        output.append(blankString(num) + line);
 								        line = "";
 								    }
@@ -233,6 +245,8 @@ public class frameApp {
 								output.append("");
 								break;
 							default:
+								error_output.append("Invalid Command");
+								textAreaErrors.write(error_output);
 								
 							}
 							
@@ -249,7 +263,8 @@ public class frameApp {
 										
 				}
 				
-				catch (Exception e){
+				catch (Exception e){		
+					//textAreaErrors.write();
 					System.err.println("Something Went Wrong... Try Again!");
 					JOptionPane.showMessageDialog(null, e);
 				}				
@@ -277,16 +292,10 @@ public class frameApp {
 		label.setBounds(10, 403, 89, 18);
 		frame.getContentPane().add(label);
 		
-		JTextPane txtpnWhileProcessingYour = new JTextPane();
-		txtpnWhileProcessingYour.setFont(new Font("Tahoma", Font.BOLD, 12));
-		txtpnWhileProcessingYour.setBounds(10, 432, 869, 66);
-		frame.getContentPane().add(txtpnWhileProcessingYour);
-		
 		JLabel lblSaved = new JLabel("Saved");
 		lblSaved.setFont(new Font("Ink Free", Font.BOLD, 18));
 		lblSaved.setBounds(155, 41, 67, 26);
 		frame.getContentPane().add(lblSaved);
-		
 		
 	}
 	
