@@ -178,9 +178,11 @@ public class frameApp {
 								    if(line.length() > 80){
 								        output_print.println(line.substring(0, 80));
 								        output_print.println("");
+								        output_print.println("");
 								        line = line.substring(80, line.length());
 								    }else{
 								        output_print.println(line);
+								        output_print.println("");
 								        output_print.println("");
 								        break;
 								    }
@@ -191,9 +193,11 @@ public class frameApp {
 								while(line.length() != 0){
 								    if(line.length() > 80){
 								        output_print.println(line.substring(0, 80));
+								        output_print.println("");
 								        line = line.substring(80, line.length());
 								    }else{
 								        output_print.println(line);
+								        output_print.println("");
 								        break;
 								    }
 								}
@@ -271,8 +275,9 @@ public class frameApp {
 								}
 								
 								//prints all of the arrays in two columns, so that both columns can be read
+								int addVal = Math.ceil(arr.length / 2);
 								for(int i = 0; i < (int) Math.floor(arr.length) / 2; i++){
-									output_print.println(arr[i] + blankString(10) + arr[(int) (i + Math.ceil(arr.length / 2))]);
+									output_print.println(arr[i] + blankString(10) + arr[(int) (i + addVal)]);
 								}
 								
 								//if the array is odd, then it prints the final array that didn't get printed
