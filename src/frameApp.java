@@ -101,18 +101,22 @@ public class frameApp {
 					FileReader reader = new FileReader(filename);
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
-			
+					
 					Writer error_output = new BufferedWriter(new FileWriter(error_file, true));
+					FileReader error_reader = new FileReader(error_file);
+					BufferedReader error_buffer = new BufferedReader(error_reader);
 					
 					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
-					output.append(line); //addes the line to the new file
+					//output.append(line); //addes the line to the new file
+					FileReader reader_file = new FileReader(file_to_save);
+					BufferedReader file_buffer = new BufferedReader(reader_file);
 					
 					char flag = 'l';
 					
 					while(line != null) {
 						if(line.charAt(0) == '-') {
 							flag = line.charAt(1);
-						} else
+						} else {
 							switch(flag) {
 							//left alignment
 							case 'l':
@@ -251,7 +255,7 @@ public class frameApp {
 							//double column formatting
 							case '2':
 								//divides the line into an array of length 35 strings
-								int size = Math.ceil(line.length() / 35);
+								int size = (int) Math.ceil(line.length() / 35);
 								String[] arr = new String[size];
 								String subLine = line;
 								for(int i = 0; i < arr.length; i++) {
@@ -264,13 +268,13 @@ public class frameApp {
 								}
 								
 								//prints all of the arrays in two columns, so that both columns can be read
-								for(int i = 0; i < Math.floor(arr.length) / 2); i++){
-									output.append(arr[i] + blankString(10) + arr[i + Math.ceil(arr.length / 2)]);
+								for(int i = 0; i < (int) Math.floor(arr.length) / 2; i++){
+									output.append(arr[i] + blankString(10) + arr[(int) (i + Math.ceil(arr.length / 2))]);
 								}
 								
 								//if the array is odd, then it prints the final array that didn't get printed
 								if(arr.length % 2 == 1) {
-									output.append(arr[Math.floor(arr.length/2)]);
+									output.append(arr[(int) Math.floor(arr.length/2)]);
 								}
 								break;
 							//blank line
@@ -283,13 +287,13 @@ public class frameApp {
 								textAreaErrors.write(error_output);
 								
 							}
-							
+						}
+						line = br.readLine();					
 						}
 
 					
-					line = br.readLine();
-					
-					jTextArea1.read(br, null);
+					jTextArea1.read(file_buffer, null);
+					textAreaErrors.read(error_buffer, null);
 					//jTextArea1.write(output);
 					br.close();
 					output.close();
