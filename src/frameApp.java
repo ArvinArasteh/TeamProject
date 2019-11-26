@@ -264,7 +264,7 @@ public class frameApp {
 								for(int i = 0; i < arr.length; i++) {
 									if(subLine.length() > 35) {
 										arr[i] = subLine.substring(0, 35);
-										subLine = line.substring(0, subLine.length());
+										subLine = line.substring(35, subLine.length());
 									}else {
 										arr[i] = subLine;
 									}
