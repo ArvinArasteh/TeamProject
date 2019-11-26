@@ -85,19 +85,17 @@ public class frameApp {
 					String line = br.readLine();
 					
 					while(line != null) {
-						
+						while(line.length() != 0){
+						    if(line.length() > 80){
+						        System.out.println(line.substring(0, 80));
+						        line = line.substring(80, line.length());
+						    }else{
+						        System.out.println(line);
+						        line = "";
+						    }
+						}
+
 						line = br.readLine();
-						
-						while (line.length() > 80) {
-						if (line.length() <= 80) {
-							
-						} else {
-							line = line.substring(0, 80);
-							String new_line = line.substring(80, line.length());		
-						}
-						
-						}
-						
 					}
 							
 					
