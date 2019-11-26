@@ -95,10 +95,10 @@ public class frameApp {
 					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
 					output.append(line); //addes the line to the new file
 					
-					char flag = '';
+					char flag = 'l';
 					
 					while(line != null) {
-						if(line[0] == '-') {
+						if(line[0] == "-") {
 							flag = line[1];
 						}else{
 							switch(flag) {
@@ -117,6 +117,38 @@ public class frameApp {
 							case 'c':
 								
 								break;
+							case 'r':
+								
+								break;
+							case 't':
+								
+								break;
+							case 'd':
+								
+								break;
+							case 's':
+								
+								break;
+							case 'i':
+								
+								break;
+							case 'b':
+								
+								break;
+							case 'n':
+								
+								break;
+							case '1':
+								
+								break;
+							case '2':
+								
+								break;
+							case 'e':
+								
+								break;
+							default:
+								
 							}
 							
 						}
