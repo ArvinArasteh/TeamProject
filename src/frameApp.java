@@ -100,7 +100,7 @@ public class frameApp {
 					while(line != null) {
 						if(line.charAt(0) == '-') {
 							flag = line.charAt(1);
-						}else
+						} else
 							switch(flag) {
 							case 'l':
 								while(line.length() != 0){
@@ -157,6 +157,7 @@ public class frameApp {
 					line = br.readLine();
 					
 					jTextArea1.read(br, null);
+					//jTextArea1.write(output);
 					br.close();
 					output.close();
 					jTextArea1.requestFocus();
