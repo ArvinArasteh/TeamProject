@@ -56,7 +56,7 @@ public class frameApp {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 905, 548);
+		frame.setBounds(100, 100, 866, 524);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -102,9 +102,10 @@ public class frameApp {
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
 					
-					Writer error_output = new BufferedWriter(new FileWriter(error_file, true));
+					Writer error_output = new BufferedWriter(new FileWriter(error_file, false));
 					FileReader error_reader = new FileReader(error_file);
 					BufferedReader error_buffer = new BufferedReader(error_reader);
+					
 					
 					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
 					//output.write(line); //addes the line to the new file
