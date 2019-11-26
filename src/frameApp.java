@@ -98,9 +98,9 @@ public class frameApp {
 					char flag = 'l';
 					
 					while(line != null) {
-						if(line[0] == "-") {
-							flag = line[1];
-						}else{
+						if(line.charAt(0) == '-') {
+							flag = line.charAt(1);
+						}else
 							switch(flag) {
 							case 'l':
 								while(line.length() != 0){
@@ -153,9 +153,8 @@ public class frameApp {
 							
 						}
 
-						line = br.readLine();
-					}
-							
+					
+					line = br.readLine();
 					
 					jTextArea1.read(br, null);
 					br.close();
