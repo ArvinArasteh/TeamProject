@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.Writer;
 import java.awt.event.ActionEvent;
 
@@ -107,8 +108,10 @@ public class frameApp {
 					BufferedReader error_buffer = new BufferedReader(error_reader);
 					
 					
-					Writer output = new BufferedWriter(new FileWriter(file_to_save, true)); //create a file to save
-					//output.write(line); //addes the line to the new file
+					FileWriter output = new FileWriter(file_to_save, true); //create a file to save
+					PrintWriter output_print = new PrintWriter(output);
+					
+					//output_print.println(line); //addes the line to the new file
 					FileReader reader_file = new FileReader(file_to_save);
 					BufferedReader file_buffer = new BufferedReader(reader_file);
 					
@@ -122,10 +125,10 @@ public class frameApp {
 							case 'l':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
-								        output.write(line);
+								        output_print.println(line);
 								        break;
 								    }
 								}
@@ -134,11 +137,11 @@ public class frameApp {
 							case 'c':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
 								    	int num = (80 - line.length()) / 2;
-								        output.write(blankString(num) + line);
+								        output_print.println(blankString(num) + line);
 								        break;
 								    }
 								}
@@ -147,11 +150,11 @@ public class frameApp {
 							case 'r':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
 								    	int num = 80 - line.length();
-								        output.write(blankString(num) + line);
+								        output_print.println(blankString(num) + line);
 								        line = "";
 								    }
 								}
@@ -160,11 +163,11 @@ public class frameApp {
 							case 't':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
 								    	int num = (80 - line.length()) / 2;
-								        output.write(blankString(num) + line);
+								        output_print.println(blankString(num) + line);
 								        break;
 								    }
 								}
@@ -173,12 +176,12 @@ public class frameApp {
 							case 'd':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
-								        output.write("");
+								        output_print.println(line.substring(0, 80));
+								        output_print.println("");
 								        line = line.substring(80, line.length());
 								    }else{
-								        output.write(line);
-								        output.write("");
+								        output_print.println(line);
+								        output_print.println("");
 								        break;
 								    }
 								}
@@ -187,10 +190,10 @@ public class frameApp {
 							case 's':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
-								        output.write(line);
+								        output_print.println(line);
 								        break;
 								    }
 								}
@@ -201,18 +204,18 @@ public class frameApp {
 								while(line.length() != 0){
 									if(count == 0) {
 										if(line.length() > 75){
-									        output.write(blankString(5) + line.substring(0, 75));
+									        output_print.println(blankString(5) + line.substring(0, 75));
 									        line = line.substring(75, line.length());
 									    }else{
-									        output.write(blankString(5) + line);
+									        output_print.println(blankString(5) + line);
 									        break;
 									    }
 									}else {
 										if(line.length() > 80){
-									        output.write(line.substring(0, 80));
+									        output_print.println(line.substring(0, 80));
 									        line = line.substring(80, line.length());
 									    }else{
-									        output.write(line);
+									        output_print.println(line);
 									        break;
 									    }
 									}
@@ -221,10 +224,10 @@ public class frameApp {
 							//indents all the lines 10 spaces
 							case 'b':
 								if(line.length() > 70){
-							        output.write(blankString(10) + line.substring(0, 70));
+							        output_print.println(blankString(10) + line.substring(0, 70));
 							        line = line.substring(70, line.length());
 							    }else{
-							        output.write(blankString(10) + line);
+							        output_print.println(blankString(10) + line);
 							        break;
 							    }
 								break;
@@ -232,10 +235,10 @@ public class frameApp {
 							case 'n':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
-								        output.write(line);
+								        output_print.println(line);
 								        break;
 								    }
 								}
@@ -244,10 +247,10 @@ public class frameApp {
 							case '1':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output.write(line.substring(0, 80));
+								        output_print.println(line.substring(0, 80));
 								        line = line.substring(80, line.length());
 								    }else{
-								        output.write(line);
+								        output_print.println(line);
 								        break;
 								    }
 								}
@@ -269,23 +272,22 @@ public class frameApp {
 								
 								//prints all of the arrays in two columns, so that both columns can be read
 								for(int i = 0; i < (int) Math.floor(arr.length) / 2; i++){
-									output.write(arr[i] + blankString(10) + arr[(int) (i + Math.ceil(arr.length / 2))]);
+									output_print.println(arr[i] + blankString(10) + arr[(int) (i + Math.ceil(arr.length / 2))]);
 								}
 								
 								//if the array is odd, then it prints the final array that didn't get printed
 								if(arr.length % 2 == 1) {
-									output.write(arr[(int) Math.floor(arr.length/2)]);
+									output_print.println(arr[(int) Math.floor(arr.length/2)]);
 								}
 								break;
 							//blank line
 							case 'e':
-								output.write("");
+								output_print.println("");
 								break;
 							default:
 								error_output.write("While Processing Your File The Following Errors Happened: ");
 								error_output.write("Invalid Flag Error");
-								textAreaErrors.write(error_output);
-								
+								textAreaErrors.write(error_output);			
 							}
 						}
 						line = br.readLine();					
@@ -295,9 +297,12 @@ public class frameApp {
 					jTextArea1.read(file_buffer, null);
 					textAreaErrors.read(error_buffer, null);
 					//jTextArea1.write(output);
+					output_print.close();
 					br.close();
-					output.close();
+					//output.close();
+					error_output.close();
 					jTextArea1.requestFocus();
+					textAreaErrors.requestFocus();
 										
 				}
 				
