@@ -330,6 +330,7 @@ public class frameApp {
 					}
 					jTextArea1.setText(preview);
 					scan_output.close();
+					jTextArea1.requestFocus();
 					
 					Scanner scan_error = new Scanner(new File(error_file.getAbsolutePath()));
 					String error_log = "";
@@ -339,6 +340,7 @@ public class frameApp {
 					}
 					textAreaErrors.setText(error_log);
 					scan_error.close();
+					textAreaErrors.requestFocus();
 
 				}
 				
