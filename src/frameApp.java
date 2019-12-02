@@ -71,10 +71,10 @@ public class frameApp {
 				frame.getContentPane().add(txtpnFileName);
 								
 				JTextArea jTextArea1 = new JTextArea();
-				JScrollPane sp = new JScrollPane(jTextArea1); // Added for the Scroll but didnt work
+				//JScrollPane sp = new JScrollPane(jTextArea1); // Added for the Scroll but didnt work
 				jTextArea1.setBounds(10, 109, 869, 285);
 				frame.getContentPane().add(jTextArea1);
-				frame.getContentPane().add(sp);     // Added for the Scroll but didnt work
+				//frame.getContentPane().add(sp);     // Added for the Scroll but didnt work
 				
 				JTextArea textAreaErrors = new JTextArea();
 				textAreaErrors.setBounds(10, 432, 869, 66);
@@ -111,8 +111,9 @@ public class frameApp {
 					BufferedReader error_buffer = new BufferedReader(error_reader);
 					
 					
-					FileWriter output = new FileWriter(file_to_save, true); //create a file to save
+					FileWriter output = new FileWriter(file_to_save, false); //create a file to save
 					PrintWriter output_print = new PrintWriter(output);
+				
 					
 					//output_print.println(line); //addes the line to the new file
 					FileReader reader_file = new FileReader(file_to_save);
