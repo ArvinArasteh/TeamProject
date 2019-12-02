@@ -222,8 +222,10 @@ public class frameApp {
 										if (line.length() > 75) {
 											output_print.println(blankString(5) + line.substring(0, 75));
 											line = line.substring(75, line.length());
+											count++;
 										} else {
 											output_print.println(blankString(5) + line);
+											count++;
 											break;
 										}
 									} else {
@@ -251,6 +253,7 @@ public class frameApp {
 								break;
 							// removes indentation
 							case 'n':
+								line = line.trim();
 								while (line.length() != 0) {
 									if (line.length() > 80) {
 										output_print.println(line.substring(0, 80));
