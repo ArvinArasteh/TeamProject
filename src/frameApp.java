@@ -180,15 +180,10 @@ public class frameApp {
 							case 'd':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output_print.println(line.substring(0, 80));
-								        output_print.println("");
-								        output_print.println("");
+								        output_print.println(line.substring(0, 80) + "\n\n");
 								        line = line.substring(80, line.length());
 								    }else{
-								        output_print.println(line);
-								        output_print.println("");
-								        output_print.println("");
-								        break;
+								        output_print.println(line + "\n\n");
 								    }
 								}
 								break;
@@ -196,12 +191,10 @@ public class frameApp {
 							case 's':
 								while(line.length() != 0){
 								    if(line.length() > 80){
-								        output_print.println(line.substring(0, 80));
-								        output_print.println("");
+								        output_print.println(line.substring(0, 80) + "\n");
 								        line = line.substring(80, line.length());
 								    }else{
-								        output_print.println(line);
-								        output_print.println("");
+								        output_print.println(line + "\n");
 								        break;
 								    }
 								}
@@ -231,13 +224,15 @@ public class frameApp {
 								break;
 							//indents all the lines 10 spaces
 							case 'b':
-								if(line.length() > 70){
-							        output_print.println(blankString(10) + line.substring(0, 70));
-							        line = line.substring(70, line.length());
-							    }else{
-							        output_print.println(blankString(10) + line);
-							        break;
-							    }
+								while(line.length() != 0) {
+									if(line.length() > 70){
+								        output_print.println(blankString(10) + line.substring(0, 70));
+								        line = line.substring(70, line.length());
+								    }else{
+								        output_print.println(blankString(10) + line);
+								        break;
+								    }
+								}
 								break;
 							//removes indentation
 							case 'n':
@@ -266,28 +261,31 @@ public class frameApp {
 							//double column formatting
 							case '2':
 								//divides the line into an array of length 35 strings
-								int size = (int) Math.ceil(line.length() / 35);
+								int size = line.length() / 35 + 1;
 								String[] arr = new String[size];
 								String subLine = line;
 								for(int i = 0; i < arr.length; i++) {
 									if(subLine.length() > 35) {
 										arr[i] = subLine.substring(0, 35);
-										subLine = line.substring(35, subLine.length());
+										subLine = subLine.substring(35, subLine.length());
 									}else {
 										arr[i] = subLine;
 									}
 								}
 								
 								//prints all of the arrays in two columns, so that both columns can be read
-								int addVal = (int) Math.ceil(arr.length / 2);
-								for(int i = 0; i < (int) Math.floor(arr.length) / 2; i++){
-									output_print.println(arr[i] + blankString(10) + arr[(int) (i + addVal)]);
+								int addVal = arr.length / 2 + 1;
+								String newString = "";
+								for(int i = 0; i < arr.length / 2; i++){
+									newString += arr[i] + blankString(10) + arr[i + addVal] + "\n";
 								}
 								
 								//if the array is odd, then it prints the final array that didn't get printed
 								if(arr.length % 2 == 1) {
-									output_print.println(arr[(int) Math.floor(arr.length/2)]);
+									newString += arr[arr.length / 2];
 								}
+								
+								output_print.println(newString);
 								break;
 							//blank line
 							case 'e':
