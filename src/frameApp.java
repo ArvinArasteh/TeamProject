@@ -163,7 +163,7 @@ public class frameApp {
 									} else {
 										int num = 80 - line.length();
 										output_print.println(blankString(num) + line);
-										line = "";
+										break;
 									}
 								}
 								break;
@@ -188,6 +188,7 @@ public class frameApp {
 										line = line.substring(80, line.length());
 									} else {
 										output_print.println(line + "\n\n");
+										break;
 									}
 								}
 								break;
