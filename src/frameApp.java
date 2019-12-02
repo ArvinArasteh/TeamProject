@@ -30,6 +30,8 @@ import java.awt.event.ActionEvent;
 
 public class frameApp {
 
+	boolean uploaded = false;
+	
 	private JFrame frame;
 
 	/**
@@ -68,6 +70,8 @@ public class frameApp {
 		JButton btnUpload = new JButton("Upload");
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
+				
+				uploaded = true;
 				
 				JTextPane txtpnFileName = new JTextPane();
 				txtpnFileName.setBounds(128, 11, 150, 23);
@@ -362,10 +366,17 @@ public class frameApp {
 		JButton btnSave = new JButton("Save As");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, 
-                        "The output.txt file is saved to your HOME directory", 
-                        "SAVED", 
-                        JOptionPane.INFORMATION_MESSAGE);
+				if(uploaded) {
+					JOptionPane.showMessageDialog(null, 
+	                        "The output.txt file is saved to your HOME directory", 
+	                        "SAVED", 
+	                        JOptionPane.INFORMATION_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, 
+	                        "You need to upload a file first.",
+	                        "OK",
+	                        JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
 		btnSave.setFont(new Font("Ink Free", Font.BOLD, 14));
