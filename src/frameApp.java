@@ -95,8 +95,10 @@ public class frameApp {
 				String error = "error.txt";
 				File error_file = new File(error);
 
+				String userHomeFolder = System.getProperty("user.home"); // The user's home directory
+				
 				String fileName_to_save = "output.txt"; // new file name
-				File file_to_save = new File(fileName_to_save); // creates a File to save later
+				File file_to_save = new File(userHomeFolder,fileName_to_save); // creates a File to save later
 
 				try {
 					FileReader reader = new FileReader(filename);
@@ -111,8 +113,8 @@ public class frameApp {
 					PrintWriter output_print = new PrintWriter(output);
 
 					// output_print.println(line); //addes the line to the new file
-					FileReader reader_file = new FileReader(file_to_save);
-					BufferedReader file_buffer = new BufferedReader(reader_file);
+					//FileReader reader_file = new FileReader(file_to_save);
+					//BufferedReader file_buffer = new BufferedReader(reader_file);
 
 					/*
 					 * FileReader reader_text = new FileReader("output.txt"); BufferedReader br_text
@@ -323,6 +325,7 @@ public class frameApp {
 					scan.close();
 
 				}
+				
 
 				catch (Exception e) {
 					// textAreaErrors.write();
@@ -338,10 +341,18 @@ public class frameApp {
 		btnUpload.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnUpload);
 
-		JButton btnNewButton = new JButton("Save As");
-		btnNewButton.setFont(new Font("Ink Free", Font.BOLD, 14));
-		btnNewButton.setBounds(10, 45, 89, 23);
-		frame.getContentPane().add(btnNewButton);
+		JButton btnSave = new JButton("Save As");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, 
+                        "The output.txt file is saved to your HOME directory", 
+                        "SAVED", 
+                        JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		btnSave.setFont(new Font("Ink Free", Font.BOLD, 14));
+		btnSave.setBounds(10, 45, 89, 23);
+		frame.getContentPane().add(btnSave);
 
 		JLabel lblPreview = new JLabel("Preview");
 		lblPreview.setFont(new Font("Ink Free", Font.BOLD, 17));
@@ -352,11 +363,6 @@ public class frameApp {
 		label.setFont(new Font("Ink Free", Font.BOLD, 17));
 		label.setBounds(10, 403, 89, 18);
 		frame.getContentPane().add(label);
-
-		JLabel lblSaved = new JLabel("Saved");
-		lblSaved.setFont(new Font("Ink Free", Font.BOLD, 18));
-		lblSaved.setBounds(155, 41, 67, 26);
-		frame.getContentPane().add(lblSaved);
 
 	}
 
