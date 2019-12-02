@@ -405,4 +405,5 @@ public class frameApp {
 		}
 		return newString;
 	}
-}
+	
+} //end
