@@ -326,7 +326,7 @@ public class frameApp {
 					output_print.flush();
 					textAreaErrors.requestFocus();
 					
-					Font previewFont = new Font("Lucida Console", Font.PLAIN, 12);
+					Font previewFont = new Font("MONOSPACED", Font.PLAIN, 12);
 					jTextArea1.setFont(previewFont);
 					
 					Scanner scan_output = new Scanner(new File(file_to_save.getAbsolutePath()));
