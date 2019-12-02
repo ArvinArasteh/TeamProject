@@ -1,7 +1,6 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.print.DocFlavor.URL;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
@@ -9,22 +8,14 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.JTextComponent;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
@@ -71,20 +62,17 @@ public class frameApp {
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
-				uploaded = true;
+				uploaded = true; // File Uploaded
 				
-				JTextPane txtpnFileName = new JTextPane();
+				JTextPane txtpnFileName = new JTextPane();   //File Name GUI
 				txtpnFileName.setBounds(128, 11, 150, 23);
 				frame.getContentPane().add(txtpnFileName);
 
-				JTextArea jTextArea1 = new JTextArea();
-				// JScrollPane sp = new JScrollPane(jTextArea1); // Added for the Scroll but
-				// didnt work
+				JTextArea jTextArea1 = new JTextArea();   //Preview GUI
 				jTextArea1.setBounds(10, 109, 869, 285);
 				frame.getContentPane().add(jTextArea1);
-				// frame.getContentPane().add(sp); // Added for the Scroll but didnt work
 
-				JTextArea textAreaErrors = new JTextArea();
+				JTextArea textAreaErrors = new JTextArea();  //Error Log GUI
 				textAreaErrors.setBounds(10, 432, 869, 66);
 				frame.getContentPane().add(textAreaErrors);
 
@@ -92,15 +80,15 @@ public class frameApp {
 				chooser.showOpenDialog(null);
 				File f = chooser.getSelectedFile();
 
-				String filename = f.getAbsolutePath();
-				String file_name = f.getName();
+				String filename = f.getAbsolutePath();  //Path of the File
+				String file_name = f.getName();   //Name
 
 				txtpnFileName.setText(file_name);
 				
 				String error = "error.txt";
 				File error_file = new File(error);
 
-				String userHomeFolder = System.getProperty("user.home"); // The user's home directory
+				String userHomeFolder = System.getProperty("user.home") + "/Desktop"; // The user's home directory
 				
 				String fileName_to_save = "output.txt"; // new file name
 				File file_to_save = new File(userHomeFolder,fileName_to_save); // creates a File to save later
@@ -111,27 +99,11 @@ public class frameApp {
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
 
-					/*
-					Writer error_output = new BufferedWriter(new FileWriter(error_file, false));
-					FileReader error_reader = new FileReader(error_file);
-					BufferedReader error_buffer = new BufferedReader(error_reader);
-					*/
 					FileWriter error_output = new FileWriter(error_file, false); // create a file for error
 					PrintWriter error_print = new PrintWriter(error_output);
 
 					FileWriter output = new FileWriter(file_to_save, false); // create a file to save
 					PrintWriter output_print = new PrintWriter(output);
-
-					// output_print.println(line); //addes the line to the new file
-					//FileReader reader_file = new FileReader(file_to_save);
-					//BufferedReader file_buffer = new BufferedReader(reader_file);
-
-					/*
-					 * FileReader reader_text = new FileReader("output.txt"); BufferedReader br_text
-					 * = new BufferedReader(reader_text); jTextArea1.read(br_text, null);
-					 * br_text.close(); jTextArea1.requestFocus();
-					 * 
-					 */
 
 					char flag = 'l';
 					while (line != null) {
@@ -310,6 +282,7 @@ public class frameApp {
 								output_print.println("");
 								break;
 							default:
+								// Errors
 								error_print.println("While Processing Your File The Following Errors Happened: ");
 								error_print.println("Invalid Flag Error");
 								textAreaErrors.write(error_output);
@@ -318,11 +291,6 @@ public class frameApp {
 						line = br.readLine();
 					}
 
-					//textAreaErrors.read(error_buffer, null);
-					// jTextArea1.write(output);
-					// jTextArea1.read(file_buffer, null);
-					// file_buffer.close();
-					// jTextArea1.requestFocus();
 					br.close();
 					output_print.close();
 					error_output.close();
@@ -332,6 +300,7 @@ public class frameApp {
 					Font previewFont = new Font("MONOSPACED", Font.PLAIN, 12);
 					jTextArea1.setFont(previewFont);
 					
+					// Display Preview
 					Scanner scan_output = new Scanner(new File(file_to_save.getAbsolutePath()));
 					String preview = "";
 					while (scan_output.hasNextLine()) {
@@ -342,6 +311,7 @@ public class frameApp {
 					scan_output.close();
 					jTextArea1.requestFocus();
 					
+					// Display Error Log
 					Scanner scan_error = new Scanner(new File(error_file.getAbsolutePath()));
 					String error_log = "";
 					while (scan_error.hasNextLine()) {
@@ -356,7 +326,7 @@ public class frameApp {
 				
 
 				catch (Exception e) {
-					// textAreaErrors.write();
+					//Error Handling 
 					System.err.println("Something Went Wrong... Try Again!");
 					JOptionPane.showMessageDialog(null, e);
 				}
