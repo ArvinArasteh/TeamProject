@@ -1,4 +1,3 @@
-double column. double column. doubl          e column. double column. double col
-e column. double column. double col          e column. double column. double col
-e column. double column. double col          e column. double column. double col
-e column. double column. double col          e column. double column. double col
+This should be default. This should be default.  This should be default.  This s
+hould be default.  This should be default.  This should be default.  This should
+ be default. 

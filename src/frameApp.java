@@ -310,6 +310,7 @@ public class frameApp {
 					br.close();
 					//output.close();
 					error_output.close();
+					output_print.flush();
 					jTextArea1.requestFocus();
 					textAreaErrors.requestFocus();
 										
