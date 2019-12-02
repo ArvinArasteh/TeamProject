@@ -372,12 +372,12 @@ public class frameApp {
 				if(uploaded) {
 					JOptionPane.showMessageDialog(null, 
 	                        "The output.txt file is saved to your HOME directory", 
-	                        "SAVED", 
+	                        "FILE SAVED", 
 	                        JOptionPane.INFORMATION_MESSAGE);
 				}else {
 					JOptionPane.showMessageDialog(null, 
 	                        "You need to upload a file first.",
-	                        "OK",
+	                        "NO FILE UPLOADED",
 	                        JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
