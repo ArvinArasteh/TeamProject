@@ -59,6 +59,7 @@ public class frameApp {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+	
 		frame = new JFrame();
 		frame.setBounds(100, 100, 866, 524);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +68,7 @@ public class frameApp {
 		JButton btnUpload = new JButton("Upload");
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-
+				
 				JTextPane txtpnFileName = new JTextPane();
 				txtpnFileName.setBounds(128, 11, 150, 23);
 				frame.getContentPane().add(txtpnFileName);
@@ -91,7 +92,7 @@ public class frameApp {
 				String file_name = f.getName();
 
 				txtpnFileName.setText(file_name);
-
+				
 				String error = "error.txt";
 				File error_file = new File(error);
 
@@ -99,15 +100,20 @@ public class frameApp {
 				
 				String fileName_to_save = "output.txt"; // new file name
 				File file_to_save = new File(userHomeFolder,fileName_to_save); // creates a File to save later
+				
 
 				try {
 					FileReader reader = new FileReader(filename);
 					BufferedReader br = new BufferedReader(reader);
 					String line = br.readLine();
 
+					/*
 					Writer error_output = new BufferedWriter(new FileWriter(error_file, false));
 					FileReader error_reader = new FileReader(error_file);
 					BufferedReader error_buffer = new BufferedReader(error_reader);
+					*/
+					FileWriter error_output = new FileWriter(error_file, false); // create a file for error
+					PrintWriter error_print = new PrintWriter(error_output);
 
 					FileWriter output = new FileWriter(file_to_save, false); // create a file to save
 					PrintWriter output_print = new PrintWriter(output);
@@ -297,15 +303,15 @@ public class frameApp {
 								output_print.println("");
 								break;
 							default:
-								error_output.write("While Processing Your File The Following Errors Happened: ");
-								error_output.write("Invalid Flag Error");
+								error_print.println("While Processing Your File The Following Errors Happened: ");
+								error_print.println("Invalid Flag Error");
 								textAreaErrors.write(error_output);
 							}
 						}
 						line = br.readLine();
 					}
 
-					textAreaErrors.read(error_buffer, null);
+					//textAreaErrors.read(error_buffer, null);
 					// jTextArea1.write(output);
 					// jTextArea1.read(file_buffer, null);
 					// file_buffer.close();
@@ -316,14 +322,23 @@ public class frameApp {
 					output_print.flush();
 					textAreaErrors.requestFocus();
 
-					Scanner scan = new Scanner(new File(file_to_save.getAbsolutePath()));
+					Scanner scan_output = new Scanner(new File(file_to_save.getAbsolutePath()));
 					String preview = "";
-					while (scan.hasNextLine()) {
-						preview += scan.nextLine() + "\n";
+					while (scan_output.hasNextLine()) {
+						preview += scan_output.nextLine() + "\n";
 
 					}
 					jTextArea1.setText(preview);
-					scan.close();
+					scan_output.close();
+					
+					Scanner scan_error = new Scanner(new File(error_file.getAbsolutePath()));
+					String error_log = "";
+					while (scan_error.hasNextLine()) {
+						error_log += scan_error.nextLine() + "\n";
+
+					}
+					textAreaErrors.setText(error_log);
+					scan_error.close();
 
 				}
 				
