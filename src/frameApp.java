@@ -315,7 +315,10 @@ public class frameApp {
 					error_output.close();
 					output_print.flush();
 					textAreaErrors.requestFocus();
-
+					
+					Font previewFont = new Font("Lucida Console", Font.PLAIN, 12);
+					jTextArea1.setFont(previewFont);
+					
 					Scanner scan = new Scanner(new File(file_to_save.getAbsolutePath()));
 					String preview = "";
 					while (scan.hasNextLine()) {
