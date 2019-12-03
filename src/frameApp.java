@@ -333,7 +333,7 @@ public class frameApp {
 
 		});
 		btnUpload.setForeground(Color.BLACK);
-		btnUpload.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnUpload.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 		btnUpload.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnUpload);
 
@@ -353,7 +353,7 @@ public class frameApp {
 				}
 			}
 		});
-		btnSave.setFont(new Font("Times New Roman", Font.BOLD, 15));
+		btnSave.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 16));
 		btnSave.setBounds(10, 45, 89, 23);
 		frame.getContentPane().add(btnSave);
 
