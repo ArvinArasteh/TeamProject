@@ -87,11 +87,9 @@ public class frameApp {
 				
 				String error = "error.txt";
 				File error_file = new File(error);
-
-				String userHomeFolder = System.getProperty("user.home") + "/Desktop"; // The user's desktop directory
 				
 				String fileName_to_save = "output.txt"; // new file name
-				File file_to_save = new File(userHomeFolder,fileName_to_save); // creates a File to save later
+				File file_to_save = new File(fileName_to_save); // creates a File to save later
 				
 
 				try {
@@ -344,7 +342,7 @@ public class frameApp {
 			public void actionPerformed(ActionEvent e) {
 				if(uploaded) {
 					JOptionPane.showMessageDialog(null, 
-	                        "The output.txt file is saved to your DESKTOP directory", 
+	                        "The output.txt file is saved to your CURRENT Directory", 
 	                        "FILE SAVED", 
 	                        JOptionPane.INFORMATION_MESSAGE);
 				}else {
