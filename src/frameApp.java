@@ -114,7 +114,7 @@ public class frameApp {
 					char flag = 'l';
 					while (line != null) {
 						if (line.charAt(0) == '-') {
-							for(i = 1; i < line.length(); i++) {
+							for(int i = 1; i < line.length(); i++) {
 								if(line.charAt(i-1) == '-') {
 									switch(line.charAt(i)) {
 									case 'l':
@@ -615,7 +615,7 @@ public class frameApp {
 								
 							}
 							
-							if(doubleSpace) {
+							if(doublespace) {
 								output_print.println(blankString(80));
 							}
 						}
