@@ -113,10 +113,8 @@ public class frameApp {
 					
 					char flag = 'l';
 					while (line != null) {
-						if (line.charAt(0) == '-') {
-							for(int i = 1; i < line.length(); i++) {
-								if(line.charAt(i-1) == '-') {
-									switch(line.charAt(i)) {
+						while (line.charAt(0) == '-') {
+									switch(line.charAt(1)) {
 									case 'l':
 										right = false;
 										center = false;
@@ -169,9 +167,13 @@ public class frameApp {
 										error_print.println("Invalid Flag Error");
 										textAreaErrors.write(error_output);
 									}
-								}
+									
+									line = br.readLine();
+									if (line == null) {
+										break;
+									}
 							}
-						} else {
+							if (line != null) {
 							//formats the line beneath the flag line
 							if(right) {
 								if(singleIndent) {
@@ -618,8 +620,9 @@ public class frameApp {
 							if(doublespace) {
 								output_print.println(blankString(80));
 							}
-						}
-						line = br.readLine();
+						
+								line = br.readLine();
+							}
 					}
 
 					br.close();
