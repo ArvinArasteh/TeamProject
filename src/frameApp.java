@@ -233,7 +233,7 @@ public class frameApp {
 													int num = 80 - line.length();
 													output_print.println(blankString(num) + line);
 													break;
-												}}
+												}
 											}
 										}
 									}
