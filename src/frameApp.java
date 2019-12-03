@@ -166,10 +166,10 @@ public class frameApp {
 							case 'd':
 								while (line.length() != 0) {
 									if (line.length() > 80) {
-										output_print.println(line.substring(0, 80) + "\n\n");
+										output_print.println(line.substring(0, 80) + "\n");
 										line = line.substring(80, line.length());
 									} else {
-										output_print.println(line + "\n\n");
+										output_print.println(line + "\n");
 										break;
 									}
 								}
@@ -178,10 +178,10 @@ public class frameApp {
 							case 's':
 								while (line.length() != 0) {
 									if (line.length() > 80) {
-										output_print.println(line.substring(0, 80) + "\n");
+										output_print.println(line.substring(0, 80));
 										line = line.substring(80, line.length());
 									} else {
-										output_print.println(line + "\n");
+										output_print.println(line);
 										break;
 									}
 								}
