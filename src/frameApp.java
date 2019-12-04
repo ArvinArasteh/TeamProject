@@ -108,6 +108,7 @@ public class frameApp {
 					char flag = 'l';
 					while (line != null) {
 						if (line.charAt(0) == '-') {
+
 							flag = line.charAt(1);
 						} else {
 							switch (flag) {
@@ -119,9 +120,61 @@ public class frameApp {
 										line = line.substring(80, line.length());
 									} else {
 										output_print.println(line);
+
+							for(int i = 1; i < line.length(); i++) {
+								if(line.charAt(i-1) == '-') {
+									switch(line.charAt(i)) {
+									case 'l':
+										right = false;
+										center = false;
+										title = false;
+										break;
+									case 'c':
+										center = true;
+										right = false;
+										title = false;
+										break;
+									case 'r':
+										right = true;
+										center = false;
+										title = false;
+										break;
+									case 't':
+										title = true;
+										right = false;
+										center = false;
+										break;
+									case 'd':
+										doublespace = true;
+										break;
+									case 's':
+										doublespace = false;
+										break;
+									case 'i':
+										singleIndent = true;
+										multiIndent = false;
+										break;
+									case 'b':
+										multiIndent = true;
+										singleIndent = false;
+										break;
+									case 'n':
+										singleIndent = false;
+										multiIndent = false;
+										break;
+									case '2':
+										twoCol = true;
+										break;
+									case '1':
+										twoCol = false;
+										break;
+									case 'e':
+										output_print.println(blankString(80));
+
 										break;
 									}
 								}
+
 								break;
 							// center alignment
 							case 'c':
@@ -146,9 +199,82 @@ public class frameApp {
 										int num = 80 - line.length();
 										output_print.println(blankString(num) + line);
 										break;
+
+							}
+						} else {
+							//formats the line beneath the flag line
+							if(right) {
+								if(singleIndent) {
+									if(twoCol) {
+										int size = line.length() / 35 + 1;
+										String[] arr = new String[size];
+										String subLine = line;
+										for (int i = 0; i < arr.length; i++) {
+											if(i == 0) {
+												if (subLine.length() > 30) {
+													arr[i] = blankString(5) + subLine.substring(0, 30);
+													subLine = subLine.substring(30, subLine.length());
+												} else {
+													arr[i] = blankString(5) + subLine;
+												}
+											}else {
+												if (subLine.length() > 35) {
+													arr[i] = subLine.substring(0, 35);
+													subLine = subLine.substring(35, subLine.length());
+												} else {
+													arr[i] = subLine;
+												}
+											}
+										}
+
+										// prints all of the arrays in two columns, so that both columns can be read
+										int addVal = arr.length / 2 + 1;
+										String newString = "";
+										for (int i = 0; i < arr.length / 2; i++) {
+											newString += arr[i] + blankString(10) +
+													blankString(35-arr[i + addVal].length()) + arr[i + addVal] + "\n";
+										}
+
+										// if the array is odd, then it prints the final array that didn't get printed
+										if (arr.length % 2 == 1) {
+											newString += arr[arr.length / 2];
+										}
+
+										output_print.println(newString);
+									}else {
+										int count = 0;
+										while (line.length() != 0) {
+											if (count == 0) {
+												if (line.length() > 75) {
+													output_print.println(blankString(5) + line.substring(0, 75));
+													line = line.substring(75, line.length());
+													count++;
+												} else {
+													int num = 80 - line.length();
+													output_print.println(blankString(num) + line);
+													count++;
+													break;
+												}
+											} else {
+												if (line.length() > 80) {
+													output_print.println(line.substring(0, 80));
+													line = line.substring(80, line.length());
+												} else {
+													int num = 80 - line.length();
+													output_print.println(blankString(num) + line);
+													break;
+												}
+											}
+										}
+
 									}
+
 								}
+							}
+						}
+							
 								break;
+							
 							// makes it a title, centered, with no justification
 							case 't':
 								while (line.length() != 0) {
@@ -275,6 +401,7 @@ public class frameApp {
 									newString += arr[arr.length / 2];
 								}
 
+
 								output_print.println(newString);
 								break;
 							// blank line
@@ -286,6 +413,13 @@ public class frameApp {
 								error_print.println("While Processing Your File The Following Errors Happened: ");
 								error_print.println("Invalid Flag Error");
 								textAreaErrors.write(error_output);
+
+								
+							}
+							
+							if(doublespace) {
+								output_print.println(blankString(80));
+
 							}
 						}
 						line = br.readLine();
@@ -370,6 +504,7 @@ public class frameApp {
 		frame.getContentPane().add(label);
 
 	}
+			
 
 	public String blankString(int num) {
 		String newString = "";
