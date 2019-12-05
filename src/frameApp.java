@@ -170,7 +170,7 @@ public class frameApp {
 									
 								line = br.readLine();
 							}
-						
+
 						if (line != null ) {
 							//formats the line beneath the flag line
 							if(right) {
@@ -183,14 +183,14 @@ public class frameApp {
 											if(i == 0) {
 												if (subLine.length() > 30) {
 													arr[i] = blankString(5) + subLine.substring(0, 30);
-													subLine = subLine.substring(30, subLine.length());
+													subLine = subLine.substring(30).trim();
 												} else {
 													arr[i] = blankString(5) + subLine;
 												}
 											}else {
 												if (subLine.length() > 35) {
 													arr[i] = subLine.substring(0, 35);
-													subLine = subLine.substring(35, subLine.length());
+													subLine = subLine.substring(35).trim();
 												} else {
 													arr[i] = subLine;
 												}
@@ -198,16 +198,24 @@ public class frameApp {
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) +
 													blankString(35-arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -217,22 +225,40 @@ public class frameApp {
 											if (count == 0) {
 												if (line.length() > 75) {
 													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75, line.length());
+													line = line.substring(75).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
 													count++;
 												} else {
 													int num = 80 - line.length();
 													output_print.println(blankString(num) + line);
-													count++;
-													break;
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
+													line = "";
 												}
 											} else {
 												if (line.length() > 80) {
 													output_print.println(line.substring(0, 80));
-													line = line.substring(80, line.length());
+													line = line.substring(80).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
 												} else {
 													int num = 80 - line.length();
 													output_print.println(blankString(num) + line);
-													break;
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
+													line = "";
 												}
 											}
 										}
@@ -245,23 +271,31 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
-												subLine = subLine.substring(25, subLine.length());
+												subLine = subLine.substring(25).trim();
 											} else {
 												arr[i] = blankString(10) + subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) + 
 													blankString(35-arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -269,12 +303,17 @@ public class frameApp {
 									}else {
 										while (line.length() != 0) {
 											if (line.length() > 70) {
-												output_print.println(line.substring(0, 70));
-												line = blankString(10) + line.substring(70, line.length());
+												output_print.println(blankString(10) + line.substring(0, 70));
+												line = line.substring(70).trim();
 											} else {
 												int num = 80 - line.length();
 												output_print.println(blankString(num) + line);
-												break;
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
+												
+												line = "";
 											}
 										}
 									}
@@ -286,23 +325,31 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
-												subLine = subLine.substring(35, subLine.length());
+												subLine = subLine.substring(35).trim();
 											} else {
 												arr[i] = subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) +
 													blankString(35-arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -311,11 +358,20 @@ public class frameApp {
 										while (line.length() != 0) {
 											if (line.length() > 80) {
 												output_print.println(line.substring(0, 80));
-												line = line.substring(80, line.length());
+												line = line.substring(80).trim();
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
 											} else {
 												int num = 80 - line.length();
 												output_print.println(blankString(num) + line);
-												break;
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
+												
+												line = "";
 											}
 										}
 									}
@@ -330,14 +386,14 @@ public class frameApp {
 											if(i == 0) {
 												if (subLine.length() > 30) {
 													arr[i] = blankString(5) + subLine.substring(0, 30);
-													subLine = subLine.substring(30, subLine.length());
+													subLine = subLine.substring(30).trim();
 												} else {
 													arr[i] = blankString(5) + subLine;
 												}
 											}else {
 												if (subLine.length() > 35) {
 													arr[i] = subLine.substring(0, 35);
-													subLine = subLine.substring(35, subLine.length());
+													subLine = subLine.substring(35).trim();
 												} else {
 													arr[i] = subLine;
 												}
@@ -345,16 +401,24 @@ public class frameApp {
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) +
 													blankString(35/2 - arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -364,22 +428,36 @@ public class frameApp {
 											if (count == 0) {
 												if (line.length() > 75) {
 													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75, line.length());
+													line = line.substring(75).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
 													count++;
 												} else {
 													int num = (75 - line.length()) / 2;
 													output_print.println(blankString(num + 5) + line);
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
 													count++;
-													break;
 												}
 											} else {
 												if (line.length() > 80) {
 													output_print.println(line.substring(0, 80));
-													line = line.substring(80, line.length());
+													line = line.substring(80).trim();
 												} else {
 													int num = (80 - line.length()) / 2;
 													output_print.println(blankString(num) + line);
-													break;
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
+													line = "";
 												}
 											}
 										}
@@ -392,34 +470,51 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
-												subLine = subLine.substring(25, subLine.length());
+												subLine = subLine.substring(25).trim();
 											} else {
 												arr[i] = blankString(10) + subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) +
 													blankString(35/2 - arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
 									}else {
 										if (line.length() > 70) {
 											output_print.println(blankString(10) + line.substring(0, 70));
-											line = line.substring(70, line.length());
+											line = line.substring(70).trim();
+											
+											if(doublespace) {
+												output_print.println("\n");
+											}
 										} else {
 											int num = (70 - line.length()) / 2;
 											output_print.println(blankString(num + 10) + line);
-											break;
+											
+											if(doublespace) {
+												output_print.println("\n");
+											}
+											
+											line = "";
 										}
 									}
 								}else {
@@ -431,35 +526,53 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
-												subLine = subLine.substring(35, subLine.length());
+												subLine = subLine.substring(35).trim();
 											} else {
 												arr[i] = subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) +
 													blankString(35/2 - arr[i + addVal].length()) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
-										output_print.println(newString);										
+										output_print.println(newString);
+										
 									}else {
 										while (line.length() != 0) {
 											if (line.length() > 80) {
 												output_print.println(line.substring(0, 80));
-												line = line.substring(80, line.length());
+												line = line.substring(80).trim();
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
 											} else {
 												int num = (80 - line.length()) / 2;
 												output_print.println(blankString(num) + line);
-												break;
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
+												
+												line = "";
 											}
 										}
 									}
@@ -469,11 +582,20 @@ public class frameApp {
 								while (line.length() != 0) {
 									if (line.length() > 80) {
 										output_print.println(line.substring(0, 80));
-										line = line.substring(80, line.length());
+										line = line.substring(80).trim();
+										
+										if(doublespace) {
+											output_print.println("\n");
+										}
 									} else {
 										int num = (80 - line.length()) / 2;
 										output_print.println(blankString(num) + line);
-										break;
+										
+										if(doublespace) {
+											output_print.println("\n");
+										}
+										
+										line = "";
 									}
 								}
 							}else {
@@ -486,14 +608,14 @@ public class frameApp {
 											if(i == 0) {
 												if (subLine.length() > 30) {
 													arr[i] = blankString(5) + subLine.substring(0, 30);
-													subLine = subLine.substring(30, subLine.length());
+													subLine = subLine.substring(30).trim();
 												} else {
 													arr[i] = blankString(5) + subLine;
 												}
 											}else {
 												if (subLine.length() > 35) {
 													arr[i] = subLine.substring(0, 35);
-													subLine = subLine.substring(35, subLine.length());
+													subLine = subLine.substring(35).trim();
 												} else {
 													arr[i] = subLine;
 												}
@@ -501,15 +623,23 @@ public class frameApp {
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												output_print.println("\n");
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -519,20 +649,38 @@ public class frameApp {
 											if (count == 0) {
 												if (line.length() > 75) {
 													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75, line.length());
+													line = line.substring(75).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
 													count++;
 												} else {
 													output_print.println(blankString(5) + line);
-													count++;
-													break;
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
+													line = "";
 												}
 											} else {
 												if (line.length() > 80) {
 													output_print.println(line.substring(0, 80));
-													line = line.substring(80, line.length());
+													line = line.substring(80).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
 												} else {
 													output_print.println(line);
-													break;
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
+													
+													line = "";
 												}
 											}
 										}
@@ -545,22 +693,30 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
-												subLine = subLine.substring(25, subLine.length());
+												subLine = subLine.substring(25).trim();
 											} else {
 												arr[i] = blankString(10) + subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -570,7 +726,12 @@ public class frameApp {
 											line = line.substring(70, line.length());
 										} else {
 											output_print.println(blankString(10) + line);
-											break;
+											
+											if(doublespace) {
+												output_print.println("\n");
+											}
+											
+											line = "";
 										}
 									}
 								}else {
@@ -581,22 +742,30 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
-												subLine = subLine.substring(35, subLine.length());
+												subLine = subLine.substring(35).trim();
 											} else {
 												arr[i] = subLine;
 											}
 										}
 
 										// prints all of the arrays in two columns, so that both columns can be read
-										int addVal = arr.length / 2 + 1;
+										int addVal = arr.length / 2;
 										String newString = "";
 										for (int i = 0; i < arr.length / 2; i++) {
 											newString += arr[i] + blankString(10) + arr[i + addVal] + "\n";
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										// if the array is odd, then it prints the final array that didn't get printed
 										if (arr.length % 2 == 1) {
 											newString += arr[arr.length / 2];
+											
+											if(doublespace) {
+												newString += "\n";
+											}
 										}
 
 										output_print.println(newString);
@@ -604,19 +773,24 @@ public class frameApp {
 										while (line.length() != 0) {
 											if (line.length() > 80) {
 												output_print.println(line.substring(0, 80));
-												line = line.substring(80, line.length());
+												line = line.substring(80).trim();
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
 											} else {
 												output_print.println(line);
-												break;
+												
+												if(doublespace) {
+													output_print.println("\n");
+												}
+												
+												line = "";
 											}
 										}
 									}
 								}
 								
-							}
-							
-							if(doublespace) {
-								output_print.println(blankString(80));
 							}
 						
 						line = br.readLine();
