@@ -110,6 +110,7 @@ public class frameApp {
 					boolean doublespace = false;
 					boolean singleIndent = false, multiIndent = false;
 					boolean twoCol = false;
+					String fullText = "";
 					
 					char flag = 'l';
 					while (line != null) {
@@ -171,14 +172,22 @@ public class frameApp {
 								line = br.readLine();
 							}
 
-						if (line != null ) {
+						if (line != null) {
+							fullText = "";
+							
+							while (line != null && line.charAt(0) != '-') {
+								fullText += line;
+								line = br.readLine();
+							}
+						}
+						
 							//formats the line beneath the flag line
 							if(right) {
 								if(singleIndent) {
 									if(twoCol) {
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if(i == 0) {
 												if (subLine.length() > 30) {
@@ -221,11 +230,11 @@ public class frameApp {
 										output_print.println(newString);
 									}else {
 										int count = 0;
-										while (line.length() != 0) {
+										while (fullText.length() != 0) {
 											if (count == 0) {
-												if (line.length() > 75) {
-													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75).trim();
+												if (fullText.length() > 75) {
+													output_print.println(blankString(5) + fullText.substring(0, 75));
+													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -233,41 +242,41 @@ public class frameApp {
 													
 													count++;
 												} else {
-													int num = 80 - line.length();
-													output_print.println(blankString(num) + line);
+													int num = 80 - fullText.length();
+													output_print.println(blankString(num) + fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 													
-													line = "";
+													fullText = "";
 												}
 											} else {
-												if (line.length() > 80) {
-													output_print.println(line.substring(0, 80));
-													line = line.substring(80).trim();
+												if (fullText.length() > 80) {
+													output_print.println(fullText.substring(0, 80));
+													fullText = fullText.substring(80).trim();
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 												} else {
-													int num = 80 - line.length();
-													output_print.println(blankString(num) + line);
+													int num = 80 - fullText.length();
+													output_print.println(blankString(num) + fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 													
-													line = "";
+													fullText = "";
 												}
 											}
 										}
 									}
 								}else if(multiIndent) {
 									if(twoCol) {
-										int size = line.length() / 25 + 1;
+										int size = fullText.length() / 25 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
@@ -301,27 +310,27 @@ public class frameApp {
 										output_print.println(newString);
 										
 									}else {
-										while (line.length() != 0) {
-											if (line.length() > 70) {
-												output_print.println(blankString(10) + line.substring(0, 70));
-												line = line.substring(70).trim();
+										while (fullText.length() != 0) {
+											if (fullText.length() > 70) {
+												output_print.println(blankString(10) + fullText.substring(0, 70));
+												fullText = fullText.substring(70).trim();
 											} else {
-												int num = 80 - line.length();
-												output_print.println(blankString(num) + line);
+												int num = 80 - fullText.length();
+												output_print.println(blankString(num) + fullText);
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 												
-												line = "";
+												fullText = "";
 											}
 										}
 									}
 								}else {
 									if(twoCol) {
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
@@ -355,23 +364,23 @@ public class frameApp {
 										output_print.println(newString);
 										
 									}else {
-										while (line.length() != 0) {
-											if (line.length() > 80) {
-												output_print.println(line.substring(0, 80));
-												line = line.substring(80).trim();
+										while (fullText.length() != 0) {
+											if (fullText.length() > 80) {
+												output_print.println(fullText.substring(0, 80));
+												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 											} else {
-												int num = 80 - line.length();
-												output_print.println(blankString(num) + line);
+												int num = 80 - fullText.length();
+												output_print.println(blankString(num) + fullText);
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 												
-												line = "";
+												fullText = "";
 											}
 										}
 									}
@@ -379,9 +388,9 @@ public class frameApp {
 							}else if(center) {
 								if(singleIndent) {
 									if(twoCol) {
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if(i == 0) {
 												if (subLine.length() > 30) {
@@ -424,11 +433,11 @@ public class frameApp {
 										output_print.println(newString);
 									}else {
 										int count = 0;
-										while (line.length() != 0) {
+										while (fullText.length() != 0) {
 											if (count == 0) {
-												if (line.length() > 75) {
-													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75).trim();
+												if (fullText.length() > 75) {
+													output_print.println(blankString(5) + fullText.substring(0, 75));
+													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -436,8 +445,8 @@ public class frameApp {
 													
 													count++;
 												} else {
-													int num = (75 - line.length()) / 2;
-													output_print.println(blankString(num + 5) + line);
+													int num = (75 - fullText.length()) / 2;
+													output_print.println(blankString(num + 5) + fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -446,27 +455,27 @@ public class frameApp {
 													count++;
 												}
 											} else {
-												if (line.length() > 80) {
-													output_print.println(line.substring(0, 80));
-													line = line.substring(80).trim();
+												if (fullText.length() > 80) {
+													output_print.println(fullText.substring(0, 80));
+													fullText = fullText.substring(80).trim();
 												} else {
-													int num = (80 - line.length()) / 2;
-													output_print.println(blankString(num) + line);
+													int num = (80 - fullText.length()) / 2;
+													output_print.println(blankString(num) + fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 													
-													line = "";
+													fullText = "";
 												}
 											}
 										}
 									}
 								}else if(multiIndent) {
 									if(twoCol) {
-										int size = line.length() / 25 + 1;
+										int size = fullText.length() / 25 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
@@ -499,30 +508,30 @@ public class frameApp {
 
 										output_print.println(newString);
 									}else {
-										if (line.length() > 70) {
-											output_print.println(blankString(10) + line.substring(0, 70));
-											line = line.substring(70).trim();
+										if (fullText.length() > 70) {
+											output_print.println(blankString(10) + fullText.substring(0, 70));
+											fullText = fullText.substring(70).trim();
 											
 											if(doublespace) {
 												output_print.println("\n");
 											}
 										} else {
-											int num = (70 - line.length()) / 2;
-											output_print.println(blankString(num + 10) + line);
+											int num = (70 - fullText.length()) / 2;
+											output_print.println(blankString(num + 10) + fullText);
 											
 											if(doublespace) {
 												output_print.println("\n");
 											}
 											
-											line = "";
+											fullText = "";
 										}
 									}
 								}else {
 									if(twoCol) {
 
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
@@ -556,54 +565,54 @@ public class frameApp {
 										output_print.println(newString);
 										
 									}else {
-										while (line.length() != 0) {
-											if (line.length() > 80) {
-												output_print.println(line.substring(0, 80));
-												line = line.substring(80).trim();
+										while (fullText.length() != 0) {
+											if (fullText.length() > 80) {
+												output_print.println(fullText.substring(0, 80));
+												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 											} else {
-												int num = (80 - line.length()) / 2;
-												output_print.println(blankString(num) + line);
+												int num = (80 - fullText.length()) / 2;
+												output_print.println(blankString(num) + fullText);
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 												
-												line = "";
+												fullText = "";
 											}
 										}
 									}
 								}
 								
 							}else if(title) { //should only make a centered title with no changes, otherwise what's the point
-								while (line.length() != 0) {
-									if (line.length() > 80) {
-										output_print.println(line.substring(0, 80));
-										line = line.substring(80).trim();
+								while (fullText.length() != 0) {
+									if (fullText.length() > 80) {
+										output_print.println(fullText.substring(0, 80));
+										fullText = fullText.substring(80).trim();
 										
 										if(doublespace) {
 											output_print.println("\n");
 										}
 									} else {
-										int num = (80 - line.length()) / 2;
-										output_print.println(blankString(num) + line);
+										int num = (80 - fullText.length()) / 2;
+										output_print.println(blankString(num) + fullText);
 										
 										if(doublespace) {
 											output_print.println("\n");
 										}
 										
-										line = "";
+										fullText = "";
 									}
 								}
 							}else {
 								if(singleIndent) {
 									if(twoCol) {
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if(i == 0) {
 												if (subLine.length() > 30) {
@@ -645,11 +654,11 @@ public class frameApp {
 										output_print.println(newString);
 									}else {
 										int count = 0;
-										while (line.length() != 0) {
+										while (fullText.length() != 0) {
 											if (count == 0) {
-												if (line.length() > 75) {
-													output_print.println(blankString(5) + line.substring(0, 75));
-													line = line.substring(75).trim();
+												if (fullText.length() > 75) {
+													output_print.println(blankString(5) + fullText.substring(0, 75));
+													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -657,39 +666,39 @@ public class frameApp {
 													
 													count++;
 												} else {
-													output_print.println(blankString(5) + line);
+													output_print.println(blankString(5) + fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 													
-													line = "";
+													fullText = "";
 												}
 											} else {
-												if (line.length() > 80) {
-													output_print.println(line.substring(0, 80));
-													line = line.substring(80).trim();
+												if (fullText.length() > 80) {
+													output_print.println(fullText.substring(0, 80));
+													fullText = fullText.substring(80).trim();
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 												} else {
-													output_print.println(line);
+													output_print.println(fullText);
 													
 													if(doublespace) {
 														output_print.println("\n");
 													}
 													
-													line = "";
+													fullText = "";
 												}
 											}
 										}
 									}
 								}else if(multiIndent) {
 									if(twoCol) {
-										int size = line.length() / 25 + 1;
+										int size = fullText.length() / 25 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
 												arr[i] = blankString(10) + subLine.substring(0, 25);
@@ -721,24 +730,24 @@ public class frameApp {
 
 										output_print.println(newString);
 									}else {
-										if (line.length() > 70) {
-											output_print.println(blankString(10) + line.substring(0, 70));
-											line = line.substring(70, line.length());
+										if (fullText.length() > 70) {
+											output_print.println(blankString(10) + fullText.substring(0, 70));
+											fullText = fullText.substring(70, fullText.length());
 										} else {
-											output_print.println(blankString(10) + line);
+											output_print.println(blankString(10) + fullText);
 											
 											if(doublespace) {
 												output_print.println("\n");
 											}
 											
-											line = "";
+											fullText = "";
 										}
 									}
 								}else {
 									if(twoCol) {
-										int size = line.length() / 35 + 1;
+										int size = fullText.length() / 35 + 1;
 										String[] arr = new String[size];
-										String subLine = line;
+										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
 												arr[i] = subLine.substring(0, 35);
@@ -770,31 +779,28 @@ public class frameApp {
 
 										output_print.println(newString);
 									}else {
-										while (line.length() != 0) {
-											if (line.length() > 80) {
-												output_print.println(line.substring(0, 80));
-												line = line.substring(80).trim();
+										while (fullText.length() != 0) {
+											if (fullText.length() > 80) {
+												output_print.println(fullText.substring(0, 80));
+												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 											} else {
-												output_print.println(line);
+												output_print.println(fullText);
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 												
-												line = "";
+												fullText = "";
 											}
 										}
 									}
 								}
 								
 							}
-						
-						line = br.readLine();
-						}
 					}
 
 					br.close();
