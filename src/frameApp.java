@@ -394,17 +394,18 @@ public class frameApp {
 										for (int i = 0; i < arr.length; i++) {
 											if(i == 0) {
 												if (subLine.length() > 30) {
-													arr[i] = blankString(5) + subLine.substring(0, 30);
+													arr[i] = blankString(5) 
+															+ center(subLine.substring(0, 30), 30);
 													subLine = subLine.substring(30).trim();
 												} else {
 													arr[i] = blankString(5) + subLine;
 												}
 											}else {
 												if (subLine.length() > 35) {
-													arr[i] = subLine.substring(0, 35);
+													arr[i] = center(subLine.substring(0, 35), 35);
 													subLine = subLine.substring(35).trim();
 												} else {
-													arr[i] = subLine;
+													arr[i] = center(subLine, 35);
 												}
 											}
 										}
@@ -436,7 +437,8 @@ public class frameApp {
 										while (fullText.length() != 0) {
 											if (count == 0) {
 												if (fullText.length() > 75) {
-													output_print.println(blankString(5) + fullText.substring(0, 75));
+													output_print.println(blankString(5) 
+															+ center(fullText.substring(0, 75), 75));
 													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
@@ -445,8 +447,8 @@ public class frameApp {
 													
 													count++;
 												} else {
-													int num = (75 - fullText.length()) / 2;
-													output_print.println(blankString(num + 5) + fullText);
+													output_print.println(blankString(5) 
+															+ center(fullText, 75));
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -456,11 +458,10 @@ public class frameApp {
 												}
 											} else {
 												if (fullText.length() > 80) {
-													output_print.println(fullText.substring(0, 80));
+													output_print.println(center(fullText.substring(0, 80), 80));
 													fullText = fullText.substring(80).trim();
 												} else {
-													int num = (80 - fullText.length()) / 2;
-													output_print.println(blankString(num) + fullText);
+													output_print.println(center(fullText, 80));
 													
 													if(doublespace) {
 														output_print.println("\n");
@@ -478,10 +479,10 @@ public class frameApp {
 										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 25) {
-												arr[i] = blankString(10) + subLine.substring(0, 25);
-												subLine = subLine.substring(25).trim();
+												arr[i] = blankString(10) + center(subLine.substring(0, 30), 30);
+												subLine = subLine.substring(30).trim();
 											} else {
-												arr[i] = blankString(10) + subLine;
+												arr[i] = blankString(10) + center(subLine, 30);
 											}
 										}
 
@@ -509,7 +510,8 @@ public class frameApp {
 										output_print.println(newString);
 									}else {
 										if (fullText.length() > 70) {
-											output_print.println(blankString(10) + fullText.substring(0, 70));
+											output_print.println(blankString(10) 
+													+ center(fullText.substring(0, 70), 70));
 											fullText = fullText.substring(70).trim();
 											
 											if(doublespace) {
@@ -517,7 +519,8 @@ public class frameApp {
 											}
 										} else {
 											int num = (70 - fullText.length()) / 2;
-											output_print.println(blankString(num + 10) + fullText);
+											output_print.println(blankString(num + 10) 
+													+ center(fullText, 70));
 											
 											if(doublespace) {
 												output_print.println("\n");
@@ -534,10 +537,10 @@ public class frameApp {
 										String subLine = fullText;
 										for (int i = 0; i < arr.length; i++) {
 											if (subLine.length() > 35) {
-												arr[i] = subLine.substring(0, 35);
+												arr[i] = center(subLine.substring(0, 35), 35);
 												subLine = subLine.substring(35).trim();
 											} else {
-												arr[i] = subLine;
+												arr[i] = center(subLine, 35);
 											}
 										}
 
@@ -567,15 +570,14 @@ public class frameApp {
 									}else {
 										while (fullText.length() != 0) {
 											if (fullText.length() > 80) {
-												output_print.println(fullText.substring(0, 80));
+												output_print.println(center(fullText.substring(0, 80), 80));
 												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
 													output_print.println("\n");
 												}
 											} else {
-												int num = (80 - fullText.length()) / 2;
-												output_print.println(blankString(num) + fullText);
+												output_print.println(center(fullText, 80));
 												
 												if(doublespace) {
 													output_print.println("\n");
@@ -890,5 +892,66 @@ public class frameApp {
 		}
 		return newString;
 	}
+	
+    public String center(String str, int len) {
+        String centered = "";
+        int numOfSpaces = 0;
+        int numOfChars;
+        int spacesNeeded;
+        
+        str = str.trim();
+        
+        for (int i  = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ') {
+                numOfSpaces++;
+            }
+        }
+        
+        if (numOfSpaces == 0 && str.length() < len) {
+            centered += blankString((len - str.length()) / 2);
+            
+            centered += str;
+            
+            if (str.length() % 2 != 0) {
+                centered += blankString((len - str.length()) / 2 + 1);
+            }
+            else {
+                centered += blankString((len - str.length()) / 2);
+            }
+        }
+        else {
+            numOfChars = str.length() - numOfSpaces;
+        
+            spacesNeeded = (len - numOfChars) / numOfSpaces;
+            
+            if ((len - numOfChars) % numOfSpaces == 0) {
+                for (int i = 0; i < numOfSpaces; i++) {
+                    centered += str.substring(0, str.indexOf(" "));
+                
+                    centered += blankString(spacesNeeded);
+                
+                    str = str.substring(str.indexOf(" ") + 1);
+                }
+            }
+            else {
+                for (int i = 0; i < numOfSpaces; i++) {
+                    centered += str.substring(0, str.indexOf(" "));
+                
+                    if (i == numOfSpaces - ((len - numOfChars) % numOfSpaces)) {
+                        spacesNeeded++;
+                    }
+                
+                    centered += blankString(spacesNeeded);
+                
+                    str = str.substring(str.indexOf(" ") + 1);
+                }
+            }
+            
+            centered += str;
+        }
+
+        
+        return centered;
+    }
 	
 } //end
