@@ -1,3 +1,4 @@
+// Authors: Arvin Arasteh, Joshua Schwartz, Timothy Styrlund, Luis Torres Gutierrez
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -172,6 +173,7 @@ public class frameApp {
 									}
 									
 								line = br.readLine();
+								
 							}
 						
 						fullText = "";
@@ -180,6 +182,7 @@ public class frameApp {
 							while (line != null && line.charAt(0) != '-') {
 								fullText += line;
 								line = br.readLine();
+								
 							}
 						}
 						
