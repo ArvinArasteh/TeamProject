@@ -5,12 +5,14 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.Font;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
@@ -71,18 +73,13 @@ public class frameApp {
 
 				JTextArea jTextArea1 = new JTextArea();   //Preview GUI
 				jTextArea1.setEditable(false);
-				
-				JScrollPane scrollPreview = new JScrollPane(jTextArea1); //Scroll for Preview Box
-				scrollPreview.setBounds(10, 109, 869, 285);
-				frame.getContentPane().add(scrollPreview);
-				
+				jTextArea1.setBounds(10, 109, 869, 285);
+				frame.getContentPane().add(jTextArea1);
 
 				JTextArea textAreaErrors = new JTextArea();  //Error Log GUI
 				textAreaErrors.setEditable(false);
-				
-				JScrollPane scrollErrorLog = new JScrollPane(textAreaErrors); //Scroll for Error Box
-				scrollErrorLog.setBounds(10, 432, 869, 66);
-				frame.getContentPane().add(scrollErrorLog);
+				textAreaErrors.setBounds(10, 432, 869, 66);
+				frame.getContentPane().add(textAreaErrors);
 
 				JFileChooser chooser = new JFileChooser(); // choosing patch and opening dialog
 				chooser.showOpenDialog(null);
@@ -176,10 +173,10 @@ public class frameApp {
 									
 								line = br.readLine();
 							}
+						
+						fullText = "";
 
-						if (line != null) {
-							fullText = "";
-							
+						if (line != null) {							
 							while (line != null && line.charAt(0) != '-') {
 								fullText += line;
 								line = br.readLine();
@@ -822,17 +819,18 @@ public class frameApp {
 					
 					Font previewFont = new Font("MONOSPACED", Font.PLAIN, 12);
 					jTextArea1.setFont(previewFont);
-					
+
 					// Display Preview
-					Scanner scan_output = new Scanner(new File(file_to_save.getAbsolutePath()));
+					Scanner scan_output = new Scanner(file_to_save);
 					String preview = "";
 					while (scan_output.hasNextLine()) {
 						preview += scan_output.nextLine() + "\n";
-
 					}
-					jTextArea1.setText(preview);
+					
+					jTextArea1.setText(preview);	
+					jTextArea1.setHighlighter(null);
 					scan_output.close();
-					jTextArea1.requestFocus();					
+					jTextArea1.requestFocus();	
 					
 					// Display Error Log
 					Scanner scan_error = new Scanner(new File(error_file.getAbsolutePath()));
