@@ -669,6 +669,7 @@ public class frameApp {
 											}
 										}
 										output_print.println(newString);
+									} else {
 										int count = 0;
 										while (fullText.length() != 0) {
 											if (count == 0) {
