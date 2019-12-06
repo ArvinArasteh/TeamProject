@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
@@ -69,8 +70,13 @@ public class frameApp {
 				frame.getContentPane().add(txtpnFileName);
 
 				JTextArea jTextArea1 = new JTextArea();   //Preview GUI
-				jTextArea1.setBounds(10, 109, 869, 285);
-				frame.getContentPane().add(jTextArea1);
+				jTextArea1.setEditable(false);
+				//jTextArea1.setBounds(10, 109, 869, 285);
+				//frame.getContentPane().add(jTextArea1);
+				
+				JScrollPane scrollPreview = new JScrollPane(jTextArea1);
+				scrollPreview.setBounds(10, 109, 869, 285);
+				frame.getContentPane().add(scrollPreview);
 
 				JTextArea textAreaErrors = new JTextArea();  //Error Log GUI
 				textAreaErrors.setBounds(10, 432, 869, 66);
@@ -460,6 +466,10 @@ public class frameApp {
 												if (fullText.length() > 80) {
 													output_print.println(center(fullText.substring(0, 80), 80));
 													fullText = fullText.substring(80).trim();
+													
+													if(doublespace) {
+														output_print.println("\n");
+													}
 												} else {
 													output_print.println(center(fullText, 80));
 													
@@ -640,7 +650,7 @@ public class frameApp {
 											newString += arr[i] + blankString(10) + arr[i + addVal] + "\n";
 											
 											if(doublespace) {
-												output_print.println("\n");
+												newString += "\n";
 											}
 										}
 
@@ -652,9 +662,7 @@ public class frameApp {
 												newString += "\n";
 											}
 										}
-
 										output_print.println(newString);
-									}else {
 										int count = 0;
 										while (fullText.length() != 0) {
 											if (count == 0) {
@@ -675,6 +683,7 @@ public class frameApp {
 													}
 													
 													fullText = "";
+													count++;
 												}
 											} else {
 												if (fullText.length() > 80) {
@@ -823,7 +832,7 @@ public class frameApp {
 					}
 					jTextArea1.setText(preview);
 					scan_output.close();
-					jTextArea1.requestFocus();
+					jTextArea1.requestFocus();					
 					
 					// Display Error Log
 					Scanner scan_error = new Scanner(new File(error_file.getAbsolutePath()));
@@ -907,7 +916,7 @@ public class frameApp {
             }
         }
         
-        if (numOfSpaces == 0 && str.length() < len) {
+        if (numOfSpaces == 0) {
             centered += blankString((len - str.length()) / 2);
             
             centered += str;
