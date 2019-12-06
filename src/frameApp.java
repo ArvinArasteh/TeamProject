@@ -242,7 +242,7 @@ public class frameApp {
 													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													count++;
@@ -251,7 +251,7 @@ public class frameApp {
 													output_print.println(blankString(num) + fullText);
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													fullText = "";
@@ -262,14 +262,14 @@ public class frameApp {
 													fullText = fullText.substring(80).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 												} else {
 													int num = 80 - fullText.length();
 													output_print.println(blankString(num) + fullText);
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													fullText = "";
@@ -324,7 +324,7 @@ public class frameApp {
 												output_print.println(blankString(num) + fullText);
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 												
 												fullText = "";
@@ -375,14 +375,14 @@ public class frameApp {
 												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 											} else {
 												int num = 80 - fullText.length();
 												output_print.println(blankString(num) + fullText);
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 												
 												fullText = "";
@@ -447,7 +447,7 @@ public class frameApp {
 													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													count++;
@@ -456,7 +456,7 @@ public class frameApp {
 															+ center(fullText, 75));
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													count++;
@@ -467,13 +467,13 @@ public class frameApp {
 													fullText = fullText.substring(80).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 												} else {
 													output_print.println(center(fullText, 80));
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													fullText = "";
@@ -524,7 +524,7 @@ public class frameApp {
 											fullText = fullText.substring(70).trim();
 											
 											if(doublespace) {
-												output_print.println("\n");
+												output_print.print("\n");
 											}
 										} else {
 											int num = (70 - fullText.length()) / 2;
@@ -532,7 +532,7 @@ public class frameApp {
 													+ center(fullText, 70));
 											
 											if(doublespace) {
-												output_print.println("\n");
+												output_print.print("\n");
 											}
 											
 											fullText = "";
@@ -583,13 +583,13 @@ public class frameApp {
 												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 											} else {
 												output_print.println(center(fullText, 80));
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 												
 												fullText = "";
@@ -605,14 +605,14 @@ public class frameApp {
 										fullText = fullText.substring(80).trim();
 										
 										if(doublespace) {
-											output_print.println("\n");
+											output_print.print("\n");
 										}
 									} else {
 										int num = (80 - fullText.length()) / 2;
 										output_print.println(blankString(num) + fullText);
 										
 										if(doublespace) {
-											output_print.println("\n");
+											output_print.print("\n");
 										}
 										
 										fullText = "";
@@ -671,7 +671,7 @@ public class frameApp {
 													fullText = fullText.substring(75).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													count++;
@@ -679,7 +679,7 @@ public class frameApp {
 													output_print.println(blankString(5) + fullText);
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													fullText = "";
@@ -691,13 +691,13 @@ public class frameApp {
 													fullText = fullText.substring(80).trim();
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 												} else {
 													output_print.println(fullText);
 													
 													if(doublespace) {
-														output_print.println("\n");
+														output_print.print("\n");
 													}
 													
 													fullText = "";
@@ -748,7 +748,7 @@ public class frameApp {
 											output_print.println(blankString(10) + fullText);
 											
 											if(doublespace) {
-												output_print.println("\n");
+												output_print.print("\n");
 											}
 											
 											fullText = "";
@@ -796,13 +796,13 @@ public class frameApp {
 												fullText = fullText.substring(80).trim();
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 											} else {
 												output_print.println(fullText);
 												
 												if(doublespace) {
-													output_print.println("\n");
+													output_print.print("\n");
 												}
 												
 												fullText = "";
