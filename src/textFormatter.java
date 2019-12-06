@@ -6,14 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.Font;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +20,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
 
-public class frameApp {
+public class textFormatter {
 
 	boolean uploaded = false;
 	
@@ -36,7 +33,7 @@ public class frameApp {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					frameApp window = new frameApp();
+					textFormatter window = new textFormatter();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +45,7 @@ public class frameApp {
 	/**
 	 * Create the application.
 	 */
-	public frameApp() {
+	public textFormatter() {
 		initialize();
 	}
 
