@@ -865,7 +865,7 @@ public class frameApp {
 
 		});
 		btnUpload.setForeground(Color.BLACK);
-		btnUpload.setFont(new Font("Ink Free", Font.BOLD, 15));
+		btnUpload.setFont(new Font("Times New Roman", Font.BOLD, 16));
 		btnUpload.setBounds(10, 11, 89, 23);
 		frame.getContentPane().add(btnUpload);
 
@@ -885,18 +885,18 @@ public class frameApp {
 				}
 			}
 		});
-		btnSave.setFont(new Font("Ink Free", Font.BOLD, 14));
+		btnSave.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		btnSave.setBounds(10, 45, 89, 23);
 		frame.getContentPane().add(btnSave);
 
 		JLabel lblPreview = new JLabel("Preview");
-		lblPreview.setFont(new Font("Ink Free", Font.BOLD, 17));
+		lblPreview.setFont(new Font("Times New Roman", Font.BOLD, 17));
 		lblPreview.setBounds(10, 84, 79, 14);
 		frame.getContentPane().add(lblPreview);
 
 		JLabel label = new JLabel("Error Log");
-		label.setFont(new Font("Ink Free", Font.BOLD, 17));
-		label.setBounds(10, 403, 89, 18);
+		label.setFont(new Font("Times New Roman", Font.BOLD, 17));
+		label.setBounds(10, 398, 89, 23);
 		frame.getContentPane().add(label);
 
 	}
