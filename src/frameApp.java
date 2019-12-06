@@ -71,8 +71,6 @@ public class frameApp {
 
 				JTextArea jTextArea1 = new JTextArea();   //Preview GUI
 				jTextArea1.setEditable(false);
-				//jTextArea1.setBounds(10, 109, 869, 285);
-				//frame.getContentPane().add(jTextArea1);
 				
 				JScrollPane scrollPreview = new JScrollPane(jTextArea1); //Scroll for Preview Box
 				scrollPreview.setBounds(10, 109, 869, 285);
@@ -81,8 +79,6 @@ public class frameApp {
 
 				JTextArea textAreaErrors = new JTextArea();  //Error Log GUI
 				textAreaErrors.setEditable(false);
-				//textAreaErrors.setBounds(10, 432, 869, 66);
-				//frame.getContentPane().add(textAreaErrors);	
 				
 				JScrollPane scrollErrorLog = new JScrollPane(textAreaErrors); //Scroll for Error Box
 				scrollErrorLog.setBounds(10, 432, 869, 66);
