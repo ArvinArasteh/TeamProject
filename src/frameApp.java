@@ -55,7 +55,7 @@ public class frameApp {
 	private void initialize() {
 	
 		frame = new JFrame();
-		frame.setBounds(100, 100, 866, 524);
+		frame.setBounds(100, 100, 915, 544);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -74,13 +74,19 @@ public class frameApp {
 				//jTextArea1.setBounds(10, 109, 869, 285);
 				//frame.getContentPane().add(jTextArea1);
 				
-				JScrollPane scrollPreview = new JScrollPane(jTextArea1);
+				JScrollPane scrollPreview = new JScrollPane(jTextArea1); //Scroll for Preview Box
 				scrollPreview.setBounds(10, 109, 869, 285);
 				frame.getContentPane().add(scrollPreview);
+				
 
 				JTextArea textAreaErrors = new JTextArea();  //Error Log GUI
-				textAreaErrors.setBounds(10, 432, 869, 66);
-				frame.getContentPane().add(textAreaErrors);
+				textAreaErrors.setEditable(false);
+				//textAreaErrors.setBounds(10, 432, 869, 66);
+				//frame.getContentPane().add(textAreaErrors);	
+				
+				JScrollPane scrollErrorLog = new JScrollPane(textAreaErrors); //Scroll for Error Box
+				scrollErrorLog.setBounds(10, 432, 869, 66);
+				frame.getContentPane().add(scrollErrorLog);
 
 				JFileChooser chooser = new JFileChooser(); // choosing patch and opening dialog
 				chooser.showOpenDialog(null);
